@@ -23,32 +23,37 @@
     <section>
         <h2>Services</h2>
         <form action="inc/services/insert.php" method="post">
-            <input type="text" name="name" id="name" placeholder="Názov sluzby">
-            <input type="text" name="name" id="name" placeholder="popis sluzby">
-            <input type="text" name="name" id="name" placeholder="hodnotenie">
-            <input type="text" name="name" id="name" placeholder="dlzka trvania">
-            <input type="text" name="name" id="name" placeholder="cena">
-            <input type="submit" value="Pridať" name="pridat_sluzbu">
+            <input type="text" name="name_service" id="name" placeholder="Názov sluzby">
+            <input type="text" name="description_service" id="name" placeholder="popis sluzby">
+            <input type="text" name="rating_service" id="name" placeholder="hodnotenie">
+            <input type="text" name="duration" id="name" placeholder="dlzka trvania">
+            <input type="text" name="price" id="name" placeholder="cena">
+            <input type="submit" value="Pridať" name="add_service">
         </form>
         <?php
 $data=$services -> get_Service();
 
 echo '<table class="admin-table">';
                 foreach($data as $s){
-                    echo '<tr>';
-                    echo '<td>'.$s->name_service;'</td>';
-                    echo '<td>'.$s->description_service;'</td>';
-                    echo '<td>'.$s->rating_service;'</td>';
-                    echo '<td>'.$s->duration;'</td>';
-                    echo '<td>'.$s->price;'</td>';
-                    echo '<td>
-                            <form action="inc/services/delete.php" method="post">
-                                <button type = "submit" name="delete_services" value="'.$s->id.'"'.'>Vymazať</button>
-                            </form>';
+                            
                     echo '</tr>';
                     echo '<tr>';
-                    
-                    echo '</tr>';
+                    echo '<td colspan="4" style="display: flex;">
+                    <form action="inc/services/update.php" method="post">
+                    <input type="text" name="id" value="'.$s->id.'" hidden>
+                    <input type="text" name="name_service" value = '.$s->name_service.' placeholder="Názov sluzby">
+                    <input type="text" name="description_service" value = '.$s->description_service.' placeholder="popis sluzby">
+                    <input type="text" name="rating_service" value = '.$s->rating_service.' placeholder="hodnotenie">
+                    <input type="text" name="duration" value = '.$s->duration.' placeholder="dlzka trvania">
+                    <input type="text" name="price" value='.$s->price.' placeholder="cena">
+                    <input type="submit" value="premenovať" name="rename_services">
+                    </form>
+                    <form action="inc/services/delete.php" method="post">
+                        <button type = "submit" name="delete_services" value="'.$s->id.'"'.'>Vymazať</button>
+                    </form>
+                    </td>';
+                                echo '</tr>';
+
                 }
                 echo '</table>';
     ?>

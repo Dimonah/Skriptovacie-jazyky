@@ -14,6 +14,7 @@ if(isset($_POST['add_service'])){
         $query = "INSERT INTO services (name_service, description_service, rating_service, duration, price) VALUES (:name_service, :description_service, :rating_service, :duration, :price)";
         $query_run = $db->conn->prepare($query);
         $query_run->execute($data);
+        header('Location: ../../admin.php');
     }catch(PDOException $e){
         print_r($e->getMessage());
     }   
