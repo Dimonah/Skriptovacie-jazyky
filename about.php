@@ -45,7 +45,7 @@ include('partials/header_navbar.php');
 
                                 <p>Clean Work is a blue color theme HTML CSS template for your company website. You may use this template for any purpose.</p>
 
-                                <a class="custom-btn btn button button--atlas mt-3" href="contact.html">
+                                <a class="custom-btn btn button button--atlas mt-3" href="contact.php">
                                     <span>Get in touch</span>
     
                                     <div class="marquee" aria-hidden="true">
